@@ -1,0 +1,17 @@
+<h2>Cars List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Colore</th>
+            <th>Carburante</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-primary" *ngFor="let car of cars">
+            <td> {{car.marca}} </td>
+            <td> {{car.colore}} </td>
+            <td> {{car.carburante}} </td>
+        </tr>
+    </tbody>
+</table>
