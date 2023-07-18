@@ -26,7 +26,7 @@ export class CarListComponent {
       "Carburante": "Elettrico"
     }];
   }*/
-  
+
   private getCars(){
     this.carService.getCarsList().subscribe(data => {
       this.cars = data;
@@ -35,6 +35,13 @@ export class CarListComponent {
 
   updateCar(id: number){
     this.router.navigate(['update-car', id]);
+  }
+
+  deleteCar(id: number){
+    this.carService.deleteCar(id).subscribe(data =>{
+      console.log(data);
+      this.getCars();
+    })
   }
   
 }
