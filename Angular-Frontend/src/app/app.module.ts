@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { CarListComponent } from './car-list/car-list.component';
 import { CreateCarComponent } from './create-car/create-car.component';
 import { FormsModule } from  '@angular/forms';
+import { UpdateCarComponent } from './update-car/update-car.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarListComponent,
-    CreateCarComponent
+    CreateCarComponent,
+    UpdateCarComponent
   ],
   imports: [
     BrowserModule,

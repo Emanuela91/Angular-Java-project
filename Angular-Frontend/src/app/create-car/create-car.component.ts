@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Car } from '../car';
+import { CarService } from '../car.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,13 +12,28 @@ import { Car } from '../car';
 export class CreateCarComponent {
 
   car: Car = new Car();
-  constructor() {}
+  constructor(private carService: CarService,
+    private router: Router) {}
 
   ngOnInit(): void{
 
   }
 
+  saveCar(){
+    this.carService.createCar(this.car).subscribe(
+      {
+        next:data => console.log(data),
+        error:error => console.log(error)
+      },
+    )
+  }
+
+  goToCarList(){
+    this.router.navigate(['/cars']);
+  }
+  
   onSubmit(){
-    console.log(this.car)
+    console.log(this.car);
+    this.saveCar();
   }
 }

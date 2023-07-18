@@ -1,0 +1,20 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Modifica Car</h3>
+    <form (ngSubmit) = "onSubmit()">
+        
+        <div class="form-group">
+            <label>Marca</label>
+            <input type="text" class="form-control" id="Marca" [(ngModel)]="car.marca" name="marca">
+        </div>
+        <div class="form-group">
+            <label>Colore</label>
+            <input type="text" class="form-control" id="Colore" [(ngModel)]="car.colore" name="colore">
+        </div>
+        <div class="form-group">
+            <label>Carburante</label>
+            <input type="text" class="form-control" id="Carburante" [(ngModel)]="car.carburante" name="carburante">
+        </div>
+    
+        <button class="btn btn-success" type="submit">Salva</button>
+    </form>
+    </div>

@@ -45,17 +45,15 @@ public class CarController {
 	@GetMapping("/cars/{id}")
 	public ResponseEntity<Car> getCarById(@PathVariable Long id) {
 		Car car = carRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("car not exist with id :" + id));
+			.orElseThrow(() -> new ResourceNotFoundException("Car not exist with id :" + id));
 		return ResponseEntity.ok(car);
 	}
 	
 	// update car rest api
-	
 	@PutMapping("/cars/{id}")
 	public ResponseEntity<Car> updateCar(@PathVariable Long id, @RequestBody Car carDetails){
 		Car car = carRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("car not exist with id :" + id));
-		
+			.orElseThrow(() -> new ResourceNotFoundException("car not exist with id :" + id));
 		car.setmarca(carDetails.getmarca());
 		car.setcolore(carDetails.getcolore());
 		car.setcarburante(carDetails.getcarburante());

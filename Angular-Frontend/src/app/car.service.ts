@@ -15,4 +15,16 @@ export class CarService {
   getCarsList(): Observable<Car[]>{
     return this.httpClient.get<Car[]>(`${this.baseURL}`);
   }
+
+  createCar(car: Car): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`, car);
+  }
+
+  getCarById(id: number): Observable<Car>{
+    return this.httpClient.get<Car>(`${this.baseURL}/${id}`);
+  }
+
+  updateCar(id: number, car: Car): Observable<any>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, car);
+  }
 }

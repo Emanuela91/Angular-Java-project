@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../car';
 import { CarService } from '../car.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-list',
@@ -11,18 +12,12 @@ export class CarListComponent {
 
   cars: Car[];
 
-  constructor(private carService: CarService ){}
+  constructor(private carService: CarService, private router: Router ){}
 
   ngOnInit(): void {
     this.getCars();
   }
 
-  private getCars(){
-    this.carService.getCarsList().subscribe(data => {
-      this.cars = data;
-    });
-  }
-  
   /*ngOnInit(): void{
     this.cars = [{
       "id": 2,
@@ -31,4 +26,15 @@ export class CarListComponent {
       "Carburante": "Elettrico"
     }];
   }*/
+  
+  private getCars(){
+    this.carService.getCarsList().subscribe(data => {
+      this.cars = data;
+    });
+  }
+
+  updateCar(id: number){
+    this.router.navigate(['update-car', id]);
+  }
+  
 }
