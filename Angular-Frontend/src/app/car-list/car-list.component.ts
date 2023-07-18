@@ -33,6 +33,10 @@ export class CarListComponent {
     });
   }
 
+  carDetails(id: number){
+    this.router.navigate(['car-details', id]);
+  }
+
   updateCar(id: number){
     this.router.navigate(['update-car', id]);
   }
